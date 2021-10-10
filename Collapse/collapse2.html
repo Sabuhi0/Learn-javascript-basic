@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .d-block {
+        display: block!important;
+    }
+    
+    .item {
+        padding-top: 7px;
+    }
+</style>
+
+<body>
+    <button id="removeAll">Remove all</button>
+    <div class="items_list">
+        <div class="item">
+            <span class="text_1">Text 1</span>
+            <button>Remove</button>
+        </div>
+        <div class="item">
+            <span class="text_2">Text 2</span>
+            <button>Remove</button>
+        </div>
+        <div class="item">
+            <span class="text_3">Text 3</span>
+            <button>Remove</button>
+        </div>
+        <div class="item">
+            <span class="text_4">Text 4</span>
+            <button>Remove</button>
+        </div>
+        <div class="item">
+            <span class="text_5">Text 5</span>
+            <button>Remove</button>
+        </div>
+    </div>
+</body>
+<script>
+    // const toggleAll = document.querySelector("#toggleAll")
+    const removeAll = document.querySelector("#removeAll")
+
+    // const toggleFirst = document.querySelector("#toggleFirst")
+    // const removeFirst = document.querySelector("#removeFirst")
+
+    // const toggleSecond = document.querySelector("#toggleSecond")
+    // const removeSecond = document.querySelector("#removeSecond")
+    const items = document.querySelectorAll(".item")
+
+
+    for (let i = 0; i < items.length; i++) {
+        let removeBtn = items[i].querySelector("button")
+            // console.log(removeBtn)
+        removeBtn.onclick = function() {
+            items[i].remove()
+            const itemsLenght = document.querySelectorAll(".item").length
+            if (itemsLenght === 0) {
+                document.querySelector("#removeAll").setAttribute("disabled", true)
+            }
+        }
+    }
+
+    removeAll.onclick = function() {
+        const itemsLists = document.querySelector(".items_list")
+        document.querySelector("#removeAll").disabled = true;
+        itemsLists.innerHTML = ""
+    }
+</script>
+
+</html>

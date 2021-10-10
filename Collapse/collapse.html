@@ -1,0 +1,78 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .d-none {
+            display: none!important;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="toggleAllText">Hide all text</button>
+    <button id="toggleFirstText">Hide first text</button>
+    <button id="toggleSecondText">Hide second text</button>
+    <!-- Texts -->
+    <div class="mainText text_1">text 1</div>
+    <div class="mainText text_2">text 2</div>
+</body>
+
+<script>
+    const toggleAllText = document.querySelector("#toggleAllText");
+    const toggleFirstText = document.querySelector("#toggleFirstText");
+    const toggleSecondText = document.querySelector("#toggleSecondText");
+
+    const text_1 = document.querySelector(".text_1")
+    const text_2 = document.querySelector(".text_2")
+
+    // console.log(text_1, text_2)
+    // console.log(toggleAllText, toggleFirstText, toggleSecondText);
+    toggleAllText.onclick = function() {
+        if (!text_1.classList.contains("d-none")) {
+            text_1.classList.add("d-none")
+            text_2.classList.add("d-none")
+            toggleAllText.innerHTML = "Show all text"
+            toggleFirstText.innerHTML = "Show first text"
+            toggleSecondText.innerHTML = "Show second text"
+        } else {
+            text_1.classList.remove("d-none")
+            text_2.classList.remove("d-none")
+            toggleAllText.innerHTML = "Hide all text"
+            toggleFirstText.innerHTML = "Hide first text"
+            toggleSecondText.innerHTML = "Hide second text"
+        }
+    }
+    toggleFirstText.onclick = function() {
+        if (!text_1.classList.contains("d-none")) {
+            text_1.classList.add("d-none")
+            toggleFirstText.innerHTML = "Show first text"
+        } else {
+            text_1.classList.remove("d-none")
+            toggleFirstText.innerHTML = "Hide first text"
+            toggleAllText.innerHTML = "Hide all text"
+        }
+        if (text_1.classList.contains("d-none") && text_2.classList.contains("d-none")) {
+            toggleAllText.innerHTML = "Show all text"
+        }
+    }
+    toggleSecondText.onclick = function() {
+        if (!text_2.classList.contains("d-none")) {
+            text_2.classList.add("d-none")
+            toggleSecondText.innerHTML = "Show second text"
+        } else {
+            text_2.classList.remove("d-none")
+            toggleSecondText.innerHTML = "Hide second text"
+            toggleAllText.innerHTML = "Hide all text"
+        }
+        if (text_1.classList.contains("d-none") && text_2.classList.contains("d-none")) {
+            toggleAllText.innerHTML = "Show all text"
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .item {
+        padding-top: 10px;
+    }
+</style>
+
+<body>
+    <div id="content">
+
+    </div>
+</body>
+<script>
+    const content = document.querySelector("#content");
+    // console.log(content.innerHTML)
+    const users = ["Aslan", "Sabuhi", "Fidan", "Aydan"]
+    for (var i = 0; i < users.length; i++) {
+        // console.log(users[i])
+        content.innerHTML = content.innerHTML +
+            `<div class="item">${users[i]}<button onclick="removeItem(${i})">Remove</button>
+        </div>`;
+    }
+
+    function removeItem(itemIndex) {
+        const items = document.querySelectorAll(".item");
+        if (items[itemIndex].textContent === "Aslan") {
+            alert("Blah blah blah")
+        } else {
+            items[itemIndex].remove()
+        }
+        console.log(items)
+    }
+</script>
+
+</html>

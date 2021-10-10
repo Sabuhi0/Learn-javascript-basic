@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="name" type="text">
+    <input class="surname" type="text">
+    <input class="birth" type="date">
+    <button id="sumbit" onclick="sumbitForm()" type="button">Sumbit</button>
+</body>
+<script>
+    // document.querySelector("#sumbit");
+    let name = document.querySelector(".name");
+    let surname = document.querySelector(".surname");
+    let birth = document.querySelector(".birth");
+
+    function sumbitForm() {
+        var inf = {
+            name: name.value,
+            surname: surname.value,
+            birth: birth.value,
+        }
+        console.log(inf)
+    }
+</script>
+
+</html>
